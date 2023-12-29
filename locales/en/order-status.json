@@ -1,0 +1,9 @@
+{
+  "new": "New Order",
+  "verification": "Verification",
+  "processing": "Processing",
+  "sent": "Sent",
+  "not_delivered": "Not Delivered",
+  "checking": "Checking",
+  "rejected": "Rejected"
+}

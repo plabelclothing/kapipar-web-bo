@@ -1,0 +1,10 @@
+{
+  "email": "Email",
+  "checkEmail": "Please check the email you entered",
+  "password": "Password",
+  "checkPassword": "Please check the password you entered",
+  "dontHaveAccount": "Don’t have an account?",
+  "welcome": "Welcome",
+  "welcomeText": "Log in to your account to be able to control your packages",
+  "loginTitle": "Login"
+}

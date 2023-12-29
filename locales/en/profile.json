@@ -1,0 +1,19 @@
+{
+  "profile": "BO Profile",
+  "myOrders": "Orders",
+  "logOut": "Log Out",
+  "deliveryAddress": "Delivery address",
+  "countryCode": "Country",
+  "state": "State",
+  "city": "City",
+  "street": "Street",
+  "houseNr": "House Nr.",
+  "apartmentNr": "Apartment Nr.",
+  "fullName": "Full Name",
+  "phone": "Phone",
+  "postalCode": "Postal Code",
+  "notCorrectData": "Not correct data",
+  "email": "Email:",
+  "id": "ID:",
+  "addOrder": "Add Order"
+}

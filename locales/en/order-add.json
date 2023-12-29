@@ -1,0 +1,8 @@
+{
+  "accountWarehouseShortRef": "Merchant Warehouse ID",
+  "accountWarehouseUuid": "Warehouse ID",
+  "senderName": "Sender Name",
+  "enterSizes": "Size",
+  "customDetails": "Custom Details",
+  "addOrder": "Add a new order"
+}

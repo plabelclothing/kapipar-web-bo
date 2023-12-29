@@ -1,0 +1,18 @@
+{
+  "firstName": "First Name",
+  "secondName": "Last Name",
+  "state": "State",
+  "phone": "Phone Number",
+  "contentType": "Customs Content Type",
+  "contentForbidden": "Forbidden Goods",
+  "SPRZEDAZ_TOWARU": "Sale of Goods",
+  "PREZENT": "Gift",
+  "DOKUMENT": "Document",
+  "packageValue": "The customs value of the items in the package",
+  "contentAmount": "Number of Goods in the package",
+  "confirmAgreement": "I agree with the service rules",
+  "confirmContentAgreement": "I confirm that the package does not contain any prohibited items",
+  "payButton": "Pay",
+  "min": "min",
+  "max": "max"
+}
