@@ -6,4 +6,5 @@ export enum OrderStatusEnum {
 	NOT_DELIVERED = 'not_delivered',
 	CHECKING = 'checking',
 	REJECTED = 'rejected',
+	NONE = '',
 }

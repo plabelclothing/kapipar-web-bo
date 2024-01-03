@@ -5,3 +5,4 @@ export * from './get-price.interface';
 export * from './set-user-default-address.interface';
 export * from './get-package.interface';
 export * from './get-warehouse.interface';
+export * from './set-order-status.interface';

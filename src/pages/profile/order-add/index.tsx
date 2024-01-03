@@ -7,7 +7,7 @@ import { AbortControllerUtil, handleInput, SplitCustomsDetailsUtil } from '@/uti
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import {
-	ReqOrderAddInterface,
+	ReqOrderAddInterface, ResOrderAddInterface,
 } from '@/interfaces/order-add.interface';
 import { GetWarehouseInterface, GetWarehouseInterfaceData } from '@/interfaces';
 import imageCompression from 'browser-image-compression';
@@ -63,7 +63,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 		if (files) {
 			const newFiles: string[] = [];
 
-			for (let i = 0; i < Math.min(files.length, 5); i++) {
+			for (let i = 0; i < Math.min(files.length, 3); i++) {
 				const file = files[i];
 				try {
 					const compressedFile = await compressImage(file);
@@ -74,7 +74,6 @@ const OrderConfirm: NextPageWithLayout = () => {
 					return;
 				}
 			}
-			//3daf2e8e-17ca-42fc-a09e-091c4c0145c5
 			//BHJQCDVEA0
 			setSelectedFiles(newFiles);
 		}
@@ -154,8 +153,8 @@ const OrderConfirm: NextPageWithLayout = () => {
 					weight: Number(packageWeight),
 				},
 				customsDetails: {
-					content: '',
-					count: Number(1),
+					content: customsDetailsParsed[0].content,
+					count: customsDetailsParsed[0].count,
 				},
 			};
 
@@ -171,6 +170,10 @@ const OrderConfirm: NextPageWithLayout = () => {
 			if (!response.ok) {
 				throw response;
 			}
+
+			const responseJson: ResOrderAddInterface = await response.json();
+
+			alert(`Warehouse ID: ${responseJson.data.warehouseId}`);
 
 			return router.reload();
 		} catch (e: any) {
@@ -244,7 +247,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 							<input
 								className="add-order-input"
 								type="text"
-								name="street"
+								name="warehouseShosrRef"
 								defaultValue={accountWarehouseShortRef}
 								onBlur={(event) => {
 									handleInput(event, /[^a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/\-=' ]*$/g, checkExistAccountWarehouseShortRef);
@@ -279,7 +282,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 									<input
 										className="add-order-input"
 										type="text"
-										name="street"
+										name="senderName"
 										defaultValue={senderName}
 										onChange={(event) => {
 											handleInput(event, /[^a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/\-=' ]*$/g, setSenderName);
@@ -296,6 +299,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 											<input
 												className="size-table_input"
 												type="text"
+												defaultValue={l || ''}
 												onChange={(event) => {
 													handleInput(event, /\D/g, setL);
 												}}
@@ -304,6 +308,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 											<input
 												className="size-table_input"
 												type="text"
+												defaultValue={w || ''}
 												onChange={(event) => {
 													handleInput(event, /\D/g, setW);
 												}}
@@ -312,6 +317,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 											<input
 												className="size-table_input"
 												type="text"
+												defaultValue={h || ''}
 												onChange={(event) => {
 													handleInput(event, /\D/g, setH);
 												}}
@@ -320,6 +326,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 											<input
 												className="size-table_input"
 												type="text"
+												defaultValue={packageWeight || ''}
 												onChange={(event) => {
 													handleInput(event, /\D/g, setPackageWeight);
 												}}
@@ -335,7 +342,7 @@ const OrderConfirm: NextPageWithLayout = () => {
 									<input
 										className="add-order-input"
 										type="text"
-										name="first_name"
+										name="customDetails"
 										defaultValue={customDetails}
 										onChange={(event) => {
 											handleInput(event, /[^a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/\-=' ]*$/g, setCustomDetails);

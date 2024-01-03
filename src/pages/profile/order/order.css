@@ -105,6 +105,13 @@
   border-radius: 20px;
 }
 
+.order-card_filter {
+  width: 100%;
+  max-width: 395px;
+  display: flex;
+  align-items: center;
+}
+
 .order-image {
   width: 100px;
   height: 100px;

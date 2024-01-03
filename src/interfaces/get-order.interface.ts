@@ -38,17 +38,27 @@ export interface GetOrderInterfaceData {
 			order_status: string;
 			short_ref: string;
 			track_number?: string;
-			is_can_consolidate: boolean;
-			is_can_send: boolean;
+			sendAccountManager?: string;
+			account_email: string,
+			account_uuid: string,
+			print: PrintDto;
+			is_paid: boolean;
+			is_can_be_prepared_for_send: boolean;
+			is_for_consolidation: boolean;
 			packages: Package[];
 		},
 	}
 }
-
 export interface Package {
+	warehouse_id: number;
 	sender_name: string;
 	created_at: number;
 	uuid: string;
 	format_date: string;
 	order__uuid: string;
+}
+
+export interface PrintDto {
+	addressLabel: string,
+	customsDeclaration: string,
 }
